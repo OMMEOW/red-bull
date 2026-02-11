@@ -272,9 +272,10 @@ h4 {
 .cupid-mascot {
     width: 450px;
     height: 450px;
-    object-fit: cover;
-    border-radius: 50%;
-    /* Circular crop */
+    object-fit: contain;
+    /* changed from cover to show full image */
+    border-radius: 20px;
+    /* Rounded rectangle instead of circle */
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
@@ -566,4 +567,24 @@ h4 {
         transform: translateY(-120vh) scale(1.5);
         opacity: 0;
     }
+}
+
+/* Force Mascot Styles - Ensure rectangular and visible */
+.cupid-mascot {
+    width: 450px !important;
+    height: 450px !important;
+    object-fit: contain !important;
+    border-radius: 20px !important;
+    /* Rectangle */
+    border: 4px solid var(--primary-red);
+    box-shadow: 0 0 50px rgba(216, 0, 39, 0.3);
+    display: block !important;
+    animation: floatMascot 6s ease-in-out infinite;
+}
+
+/* Ensure Logo Size */
+.brand-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
