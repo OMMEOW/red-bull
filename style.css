@@ -566,3 +566,22 @@ h4 {
         opacity: 0;
     }
 }
+
+/* Force Mascot Styles - Ensure circular crop and size */
+.cupid-mascot {
+    width: 450px !important;
+    height: 450px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    border: 4px solid var(--primary-red);
+    box-shadow: 0 0 50px rgba(216, 0, 39, 0.3);
+    display: block;
+    animation: floatMascot 6s ease-in-out infinite;
+}
+
+/* Ensure Logo Size */
+.brand-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
