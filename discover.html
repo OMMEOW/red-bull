@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Movement | Red Bull Cupid's Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Red Bull Logo" class="brand-logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Energy Drinks</a>
+            <a href="drink.html">The Drink</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="discover.html" class="active btn-highlight">Join the Love</a>
+        </div>
+    </nav>
+
+    <main class="section-container" style="padding-top: 160px; min-height: 100vh; display: flex; align-items: center;">
+        <div class="join-layout">
+            <div class="join-info">
+                <span
+                    style="color: var(--primary-red); text-transform: uppercase; letter-spacing: 5px; font-weight: 700;">World
+                    of Red Bull</span>
+                <h1 style="font-size: clamp(3rem, 6vw, 5rem); margin: 1.5rem 0;">JOIN THE <span
+                        class="love-text">MOVEMENT</span></h1>
+                <p style="font-size: 1.2rem; color: var(--text-gray); margin-bottom: 3rem; max-width: 600px;">
+                    Get exclusive access to limited-edition drops, VIP events, and be the first to taste the latest
+                    innovations from the World of Red Bull.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span
+                            style="width: 50px; height: 50px; border-radius: 50%; background: rgba(216, 0, 39, 0.1); display: flex; align-items: center; justify-content: center; color: var(--primary-red);">
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                        <div>
+                            <h4 style="font-size: 1.1rem;">VIP Event Access</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-gray);">Priority entry to music festivals and
+                                extreme sports.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span
+                            style="width: 50px; height: 50px; border-radius: 50%; background: rgba(0, 236, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-blue);">
+                            <i class="fas fa-gem"></i>
+                        </span>
+                        <div>
+                            <h4 style="font-size: 1.1rem;">Early Drop Access</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-gray);">Be the first to order limited edition
+                                cans and merch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card glass-card">
+                <h3 style="margin-bottom: 2rem; font-size: 1.8rem; text-align: center;">Secure Your Wings</h3>
+                <form class="form-pro">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label
+                            style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 8px;">Full
+                            Name</label>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <label
+                            style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 8px;">Email
+                            Address</label>
+                        <input type="email" placeholder="email@redbull.com" required>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 2.5rem;">
+                        <input type="checkbox" id="terms" style="width: auto; margin-top: 4px;">
+                        <label for="terms" style="font-size: 0.85rem; color: var(--text-gray);">I agree to the terms and
+                            privacy policy. Send me weekly wings.</label>
+                    </div>
+                    <button type="submit" class="cta-button primary" style="width: 100%; justify-content: center;">Sign
+                        Up Now</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer style="padding: 4rem 5%; text-align: center; border-top: 1px solid var(--glass-border); background: #000;">
+        <p style="color: var(--text-gray); font-size: 0.9rem;">&copy; 2026 Red Bull Cupid's Edition. All rights
+            reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+    <defs>
+        <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:0" />
+        </radialGradient>
+        <linearGradient id="can-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
+            <stop offset="50%" stop-color="#fff" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#fff" stop-opacity="0.8"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Background Glow -->
+    <circle cx="250" cy="250" r="240" fill="url(#bg-glow)" />
+
+    <!-- Can Outline/Body (Reused refined shape) -->
+    <g transform="translate(180, 100) rotate(5)">
+        <rect x="0" y="0" width="140" height="300" rx="10" fill="#ecf0f1" />
+        <!-- Pink Gradient Base -->
+        <rect x="0" y="0" width="140" height="300" rx="10" fill="url(#bg-glow)" opacity="0.5" />
+        
+        <!-- Design Pattern (Hearts) -->
+        <g fill="#d80027" opacity="0.1">
+             <path d="M20,40 q10,-20 20,0 q10,-20 20,0 q-20,40 -40,0" transform="scale(0.5)"/>
+             <path d="M100,200 q10,-20 20,0 q10,-20 20,0 q-20,40 -40,0" transform="scale(0.8)"/>
+             <path d="M20,250 q10,-20 20,0 q10,-20 20,0 q-20,40 -40,0" transform="scale(0.6)"/>
+        </g>
+        
+        <!-- Logo Area -->
+        <rect x="0" y="80" width="140" height="140" fill="#1c3b7f" opacity="0.9"/>
+        <circle cx="70" cy="150" r="40" fill="#d80027" />
+        <path d="M40,160 Q70,180 100,160" fill="none" stroke="#ffeb3b" stroke-width="4" stroke-linecap="round"/>
+        <path d="M40,140 Q70,120 100,140" fill="none" stroke="#ffeb3b" stroke-width="4" stroke-linecap="round"/>
+        
+        <text x="70" y="240" font-family="Arial" font-weight="900" font-size="24" fill="#d80027" text-anchor="middle">Red Bull</text>
+        <text x="70" y="260" font-family="Brush Script MT" font-size="20" fill="#d80027" text-anchor="middle">Cupid's Edition</text>
+
+        <!-- Shine -->
+        <rect x="0" y="0" width="140" height="300" rx="10" fill="url(#can-shine)" style="mix-blend-mode: overlay;"/>
+    </g>
+    
+    <!-- Rose Petals -->
+    <path d="M100,400 Q120,350 150,400 Q120,450 100,400" fill="#d80027" opacity="0.8">
+        <animateTransform attributeName="transform" type="translate" values="0,0; 10,-20; 0,0" dur="4s" repeatCount="indefinite"/>
+    </path>
+     <path d="M400,100 Q420,50 450,100 Q420,150 400,100" fill="#d80027" opacity="0.6">
+        <animateTransform attributeName="transform" type="translate" values="0,0; -10,20; 0,0" dur="5s" repeatCount="indefinite"/>
+    </path>
+
+</svg>

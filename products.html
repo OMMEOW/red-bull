@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Red Bull</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: #111;
+            /* Darker background for this specific page */
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .noise-overlay {
+            z-index: 1000;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background: #0a0a0a;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .sidebar-logo {
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-logo img {
+            height: 30px;
+            filter: brightness(0) invert(1);
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar-nav a:hover {
+            color: #00ecff;
+        }
+
+        .sidebar-nav a.active {
+            color: #00ecff;
+        }
+
+        .sidebar-nav .sub-links {
+            padding-left: 0;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar-nav .sub-links a {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #888;
+            text-transform: none;
+        }
+
+        .sidebar-nav .sub-links a:hover {
+            color: #fff;
+        }
+
+        /* Main Content area */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px 60px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .search-container {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-container input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 40px 10px 20px;
+            border-radius: 20px;
+            color: white;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .search-container i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .user-icon {
+            font-size: 1.2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Products Section */
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .products-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .view-all-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .view-all-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+        }
+
+        .product-card img {
+            width: 100%;
+            max-width: 180px;
+            /* Slightly larger */
+            height: 220px;
+            /* Fixed height for consistency */
+            object-fit: contain;
+            /* Ensure full image is visible */
+            transition: 0.4s;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+            border-radius: 12px;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1) translateY(-10px);
+        }
+
+        /* Specific text colors from image */
+        .sugarfree-title {
+            color: #00ecff;
+        }
+
+        .pink-title {
+            color: #ec407a;
+        }
+
+        .yellow-title {
+            color: #fdd835;
+        }
+
+        .red-title {
+            color: #ff1744;
+        }
+
+        /* Browse by Interests */
+        .interests-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .interest-card {
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .interest-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .interest-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .interest-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+        }
+
+        .interest-overlay span {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Carousel controls from image */
+        .carousel-prev {
+            position: absolute;
+            left: 20px;
+            top: 45%;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Hide noise on this page for cleaner look or keep it */
+        .noise-overlay {
+            opacity: 0.03;
+        }
+
+        @media (max-width: 1100px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .interests-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                overflow-y: auto;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                padding: 20px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .top-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="logo.png" alt="Red Bull">
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html">Home</a>
+            <a href="#" class="active">Energy Drinks <i class="fas fa-chevron-up"></i></a>
+            <div class="sub-links">
+                <a href="#">All Red Bull Energy Drinks</a>
+                <a href="#">Red Bull Energy Drink</a>
+                <a href="#">Red Bull Sugarfree</a>
+                <a href="#">Red Bull Editions</a>
+            </div>
+            <a href="#">Events</a>
+            <a href="#">Athletes</a>
+            <a href="#">Red Bull TV <i class="fas fa-chevron-down"></i></a>
+            <a href="#">Jobs</a>
+            <a href="#">Company</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="top-bar">
+            <div class="user-icon"><i class="far fa-user"></i></div>
+            <div class="search-container">
+                <input type="text" placeholder="Search the World of Red Bull">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
+        <section class="products-section">
+            <div class="products-header">
+                <h2>Red Bull Energy Drinks</h2>
+                <a href="#" class="view-all-btn">View all <i class="fas fa-chevron-right"></i></a>
+            </div>
+
+            <div class="carousel-prev"><i class="fas fa-chevron-left"></i></div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-title sugarfree-title">Red Bull<br>Sugarfree</div>
+                    <img src="WhatsApp Image 2026-02-11 at 22.36.52.jpeg" alt="Red Bull Sugarfree">
+                </div>
+                <div class="product-card">
+                    <div class="product-title pink-title">Red Bull<br>Pink Edition</div>
+                    <img src="WhatsApp Image 2026-02-11 at 22.37.16.jpeg" alt="Red Bull Pink Edition">
+                </div>
+                <div class="product-card">
+                    <div class="product-title yellow-title">Red Bull<br>Yellow Edition</div>
+                    <img src="WhatsApp Image 2026-02-11 at 22.37.10.jpeg" alt="Red Bull Yellow Edition">
+                </div>
+                <div class="product-card">
+                    <div class="product-title red-title">Red Bull<br>Red Edition</div>
+                    <img src="WhatsApp Image 2026-02-11 at 22.37.01.jpeg" alt="Red Bull Red Edition">
+                </div>
+            </div>
+        </section>
+
+        <section class="interests-section">
+            <h3>Browse by Interests</h3>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=400"
+                        alt="Motorsports">
+                    <div class="interest-overlay"><span>Weight Lifting</span></div>
+                </div>
+                <div class="interest-card">
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=400"
+                        alt="Football">
+                    <div class="interest-overlay"><span>Football</span></div>
+                </div>
+                <div class="interest-card">
+                    <img src="https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?auto=format&fit=crop&w=400"
+                        alt="Music">
+                    <div class="interest-overlay"><span>Extreme Sport</span></div>
+                </div>
+                <div class="interest-card">
+                    <img src="C:\Users\Tanishka Koyande\.gemini\antigravity\brain\30dbaeb9-0c32-43a4-9507-ab51fe11dfc0\gaming_red_bull_edition_1770835451588.png"
+                        alt="Gaming">
+                    <div class="interest-overlay"><span>Gaming</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

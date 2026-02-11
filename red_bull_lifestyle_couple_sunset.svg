@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+    <defs>
+        <linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ff9a9e" />
+            <stop offset="50%" stop-color="#fad0c4" />
+            <stop offset="100%" stop-color="#ffd1ff" />
+        </linearGradient>
+    </defs>
+    
+    <rect width="800" height="600" fill="url(#sunset)" />
+    
+    <!-- Sun -->
+    <circle cx="400" cy="300" r="100" fill="#ffeb3b" opacity="0.5" filter="blur(20px)"/>
+    
+    <!-- Silhouette Ground -->
+    <path d="M0,500 Q400,450 800,500 L800,600 L0,600 Z" fill="#2c3e50" />
+    
+    <!-- Couple Silhouette (Abstract) -->
+    <circle cx="350" cy="480" r="30" fill="#2c3e50" />
+    <rect x="320" y="510" width="60" height="80" fill="#2c3e50" />
+    
+    <circle cx="450" cy="490" r="28" fill="#2c3e50" />
+    <rect x="420" y="520" width="60" height="80" fill="#2c3e50" />
+    
+    <!-- Palm Tree -->
+    <path d="M700,600 Q750,400 700,200" fill="none" stroke="#2c3e50" stroke-width="20" />
+    <path d="M700,200 Q600,250 550,300 M700,200 Q800,250 850,300 M700,200 Q650,100 600,50" fill="none" stroke="#2c3e50" stroke-width="10" />
+
+    <text x="400" y="100" font-family="Brush Script MT" font-size="60" fill="white" text-anchor="middle" opacity="0.8">Love in the Air</text>
+</svg>

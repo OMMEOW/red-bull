@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+    <rect width="800" height="600" fill="#1a1a2e" />
+    
+    <!-- Neon lights -->
+    <circle cx="100" cy="100" r="50" fill="#ff0055" filter="blur(40px)" opacity="0.6"/>
+    <circle cx="700" cy="500" r="80" fill="#00ffff" filter="blur(50px)" opacity="0.4"/>
+    
+    <!-- Crowd Silhouette -->
+    <path d="M0,600 L0,400 Q100,350 200,450 T400,400 T600,450 T800,400 L800,600 Z" fill="#16213e" />
+    
+    <!-- Laser beams -->
+    <line x1="0" y1="0" x2="800" y2="600" stroke="#ff0055" stroke-width="2" opacity="0.5" />
+    <line x1="800" y1="0" x2="0" y2="600" stroke="#ff0055" stroke-width="2" opacity="0.5" />
+    
+    <text x="400" y="300" font-family="Outfit" font-weight="900" font-size="80" fill="#fff" text-anchor="middle" style="text-shadow: 0 0 20px #ff0055;">NEON LOVE</text>
+</svg>

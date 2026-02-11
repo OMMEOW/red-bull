@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="silver-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f7fa" />
+      <stop offset="100%" stop-color="#c3cfe2" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="wing-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#dceeff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Wing -->
+  <g transform="translate(100, 150) rotate(-10)">
+    <path d="M50,0 Q-20,-40 -40,0 Q-10,10 0,30 Q20,10 50,0" fill="url(#wing-grad)" filter="url(#glow)">
+        <animateTransform attributeName="transform" type="rotate" values="-10 50 20; 10 50 20; -10 50 20" dur="1.5s" repeatCount="indefinite" />
+    </path>
+    <!-- Feathers -->
+    <path d="M-40,0 Q-50,-10 -30,10" fill="none" stroke="#e0e0e0" stroke-width="2">
+       <animateTransform attributeName="transform" type="rotate" values="-5 50 20; 5 50 20; -5 50 20" dur="1.5s" repeatCount="indefinite" />
+    </path>
+  </g>
+
+  <!-- Right Wing -->
+  <g transform="translate(300, 150) scale(-1, 1) rotate(-10)">
+    <path d="M50,0 Q-20,-40 -40,0 Q-10,10 0,30 Q20,10 50,0" fill="url(#wing-grad)" filter="url(#glow)">
+        <animateTransform attributeName="transform" type="rotate" values="-10 50 20; 10 50 20; -10 50 20" dur="1.5s" repeatCount="indefinite" />
+    </path>
+  </g>
+
+  <!-- Can Body -->
+  <g transform="translate(160, 80)">
+      <!-- Main Cylinder -->
+      <rect x="0" y="0" width="80" height="160" rx="5" ry="5" fill="url(#silver-grad)"/>
+      
+      <!-- Top Rim -->
+      <ellipse cx="40" cy="0" rx="40" ry="8" fill="#e0e0e0" stroke="#bdc3c7" stroke-width="1"/>
+      
+      <!-- Design Elements (Abstract Red Bull) -->
+      <!-- Blue trapezoids -->
+      <path d="M0,0 L80,0 L80,160 L0,160 Z" fill="none"/> 
+      <path d="M0,0 L40,80 L0,160 Z" fill="#1c3b7f" opacity="0.9"/>
+      <path d="M80,0 L40,80 L80,160 Z" fill="#1c3b7f" opacity="0.9"/>
+      
+      <!-- Red Sun / Heart -->
+      <circle cx="40" cy="80" r="20" fill="#d80027" filter="url(#glow)"/>
+      
+      <!-- Bulls (Abstract Lines) -->
+      <path d="M25,85 Q40,95 55,85" fill="none" stroke="#ffeb3b" stroke-width="2" stroke-linecap="round"/>
+      <path d="M25,75 Q40,65 55,75" fill="none" stroke="#ffeb3b" stroke-width="2" stroke-linecap="round"/>
+      
+      <!-- Text -->
+      <text x="40" y="130" font-family="sans-serif" font-weight="bold" font-size="14" fill="#d80027" text-anchor="middle" letter-spacing="1">Red Bull</text>
+      
+      <!-- Bottom Rim -->
+       <path d="M0,160 Q40,175 80,160" fill="#bdc3c7" stroke="#bdc3c7" stroke-width="1"/>
+  </g>
+
+  <!-- Halo -->
+  <ellipse cx="200" cy="60" rx="50" ry="5" fill="none" stroke="#ffeb3b" stroke-width="3" filter="url(#glow)">
+       <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+  </ellipse>
+
+</svg>
