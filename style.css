@@ -336,12 +336,13 @@ h4 {
 }
 
 .drink-hero-content {
-    flex: 1;
+    flex: 0.8;
     z-index: 2;
+    padding-left: 5%;
 }
 
 .drink-visual {
-    flex: 1;
+    flex: 1.2;
     position: relative;
     display: flex;
     justify-content: center;
@@ -349,7 +350,7 @@ h4 {
 }
 
 .main-can {
-    height: 60vh;
+    height: 75vh;
     filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.8));
     animation: floatCan 6s ease-in-out infinite;
     object-fit: contain;
@@ -565,23 +566,4 @@ h4 {
         transform: translateY(-120vh) scale(1.5);
         opacity: 0;
     }
-}
-
-/* Force Mascot Styles - Ensure circular crop and size */
-.cupid-mascot {
-    width: 450px !important;
-    height: 450px !important;
-    object-fit: cover !important;
-    border-radius: 50% !important;
-    border: 4px solid var(--primary-red);
-    box-shadow: 0 0 50px rgba(216, 0, 39, 0.3);
-    display: block;
-    animation: floatMascot 6s ease-in-out infinite;
-}
-
-/* Ensure Logo Size */
-.brand-logo {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
 }
