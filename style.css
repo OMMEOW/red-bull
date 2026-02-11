@@ -141,6 +141,70 @@ h4 {
     border-radius: 4px;
 }
 
+/* Side Menu / Hamburger */
+.menu-toggle {
+    display: block;
+    /* Visible on all screens as requested */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: rgba(10, 5, 5, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 3000;
+    padding: 80px 40px;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+.close-menu {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-gray);
+    transition: 0.3s;
+}
+
+.close-menu:hover {
+    color: var(--primary-red);
+    transform: rotate(90deg);
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.mobile-nav a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.mobile-nav a:hover {
+    color: var(--primary-red);
+    transform: translateX(10px);
+}
+
 /* Home Page Hero Section */
 .hero {
     min-height: 100vh;
@@ -270,21 +334,19 @@ h4 {
 }
 
 .cupid-mascot {
-    width: 450px;
-    height: 450px;
+    width: 700px;
+    height: 700px;
     object-fit: contain;
-    /* changed from cover to show full image */
-    border-radius: 20px;
-    /* Rounded rectangle instead of circle */
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
     position: relative;
     z-index: 200;
     mix-blend-mode: normal;
-    border: 4px solid var(--primary-red);
-    box-shadow: 0 0 50px rgba(216, 0, 39, 0.3);
+    border: none;
+    box-shadow: none;
     filter: none;
+    background: transparent;
     animation: floatMascot 6s ease-in-out infinite;
 }
 
@@ -323,6 +385,52 @@ h4 {
     background: var(--dark-red);
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(216, 0, 39, 0.3);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.scroll-indicator i {
+    font-size: 1.2rem;
+    color: var(--primary-red);
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 /* --- Page: Drink --- */
@@ -569,15 +677,120 @@ h4 {
     }
 }
 
+/* Footer Styles */
+.main-footer {
+    background: #000;
+    color: #fff;
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    /* Center alignment for better look if few cols */
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--primary-red);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(216, 0, 39, 0.4);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 20px;
+}
+
+.footer-bottom a {
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+    margin: 0 5px;
+}
+
+.footer-bottom a:hover {
+    color: var(--primary-red);
+}
+
 /* Force Mascot Styles - Ensure rectangular and visible */
 .cupid-mascot {
-    width: 450px !important;
-    height: 450px !important;
+    width: 700px !important;
+    height: 700px !important;
     object-fit: contain !important;
-    border-radius: 20px !important;
-    /* Rectangle */
-    border: 4px solid var(--primary-red);
-    box-shadow: 0 0 50px rgba(216, 0, 39, 0.3);
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
     display: block !important;
     animation: floatMascot 6s ease-in-out infinite;
 }
